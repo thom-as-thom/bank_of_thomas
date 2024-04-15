@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django_browser_reload",
     "compressor",
     "dashboard",
+    "accounts",
 ]
 
 COMPRESS_ROOT = BASE_DIR / "static"

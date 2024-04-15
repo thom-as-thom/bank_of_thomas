@@ -1,0 +1,50 @@
+<main>
+    <div class="{{container}}">
+        <div class="row">
+            <div class=" grid grid-cols-3 gap-5">
+              <section class="col-span-2">
+                <div>
+                  <h3> Accounts </h3>
+                  <div>
+                    {% for account in accounts %}
+                      {%include './accountcard.html'%}
+                    {% endfor %}
+                    {% if accounts|length == 0 %}
+                    <div class="{{card}} flex-row justify-between items-center">
+                      <p class="{{section_title}}"> You don't have an account yet! </p>
+                      <a href="/accounts/create" class="{{primary_button}}"> Create one </a>
+                    </div>
+                    {% endif %}
+                    
+                  </div>
+              </section>
+              <aside class="bg-color-5-650 col-span-1 ">
+                <div class="container mx-auto h-full">
+                  <div class="flex justify-between items-center py-4 h-full">
+                    <ul class="flex flex-col items-center">
+                      <li>
+                        <a href="#" class="text-white hover:text-primary-100 text-xs font-thin">Mis productos</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-white hover:text-primary-100 text-xs font-thin">Cuentas</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-white hover:text-primary-100 text-xs font-thin">Tarjetas</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-white hover:text-primary-100 text-xs font-thin">Prestamos</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-white hover:text-primary-100 text-xs font-thin">Seguros</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-white hover:text-primary-100 text-xs font-thin">Viajes</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </aside>
+            </div>
+        </div>
+    </div>
+</main>

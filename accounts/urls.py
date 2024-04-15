@@ -20,9 +20,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", views.home, name="home"),
-    path("dashboard/", include("dashboard.urls")),
-    path("accounts/", include("accounts.urls")),
-    path("__reload__/", include("django_browser_reload.urls")),
+    path("create", views.create_account, name="create_account"),
 ]
