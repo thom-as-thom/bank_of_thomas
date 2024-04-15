@@ -1,0 +1,19 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.tabSize": 2,
+	"files.associations": {
+		"**/templates/*.html": "django-html",
+		"**/templates/*": "django-txt",
+		"**/requirements{/**,*}.{txt,in}": "pip-requirements"
+	},
+	"emmet.includeLanguages": {
+		"django-html": "html"
+	},
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.black-formatter",
+		"editor.formatOnSave": true
+	},
+	"prettier.requireConfig": false,
+	"prettier.enable": false
+}

@@ -1,0 +1,7 @@
+{% extends "_base.html" %} 
+{% load static %} 
+{% block content %} 
+{% include 'components/banner.html' with banner=banner1 %} 
+{% include 'components/carrousel.html' with carrousel=carrousel%} 
+{% include 'components/banner.html' with banner=banner2 %} 
+{% endblock content %}

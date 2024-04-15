@@ -1,0 +1,7 @@
+.helptext {
+    @apply text-xs text-gray-500;
+}
+
+.errorlist {
+    @apply text-xs text-danger-400;
+}
