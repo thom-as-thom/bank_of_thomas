@@ -1,1 +1,19 @@
+to run the project:
+
+- clone the repository
+- create a new mysql db
+- adjust settings.py accordingly
+- create a new virtual environment
+- run migrations 
+- run `pip install -r requirements.txt`
+- run `npm i`
+- run `npm tailwind-watch`
+- run `python manage.py runserver`
+
+there you go
+
+
+
+
 todo: setup s3 for images
+todo: use environment variables for db handling
