@@ -8,5 +8,5 @@ venv/
 /node_modules/
 /public/css/
 
-/static/output.css
+/static/src/output.css
 /static/CACHE
