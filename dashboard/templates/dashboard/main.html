@@ -1,22 +1,13 @@
-<main>
+<main class="py-12">
     <div class="{{container}}">
         <div class="row">
             <div class=" grid grid-cols-3 gap-5">
               <section class="col-span-2">
-                <div>
-                  <h3> Accounts </h3>
-                  <div>
-                    {% for account in accounts %}
-                      {%include './accountcard.html'%}
-                    {% endfor %}
-                    {% if accounts|length == 0 %}
-                    <div class="{{card}} flex-row justify-between items-center">
-                      <p class="{{section_title}}"> You don't have an account yet! </p>
-                      <a href="/accounts/create" class="{{primary_button}}"> Create one </a>
-                    </div>
-                    {% endif %}
-                    
-                  </div>
+                <div id="accordion-collapse" data-accordion="collapse">
+
+                {%include './userServicesAccordion.html' %}
+                {%include './userCardsAccordion.html' %}
+
               </section>
               <aside class="bg-color-5-650 col-span-1 ">
                 <div class="container mx-auto h-full">
