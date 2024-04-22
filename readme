@@ -17,3 +17,5 @@ there you go
 
 todo: setup s3 for images
 todo: use environment variables for db handling
+todo: use randomwords package to generate account alias
+todo: change nav on logged in users

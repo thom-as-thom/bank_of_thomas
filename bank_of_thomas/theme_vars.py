@@ -6,5 +6,5 @@ def theme_vars(request):
         "heading_black": "text-4xl font-bold font-heading",
         "section_title": "text-xl font-bold",
         "link": "text-color-3-400 hover:text-color-3-500",
-        "card": "flex bg-white border border-gray-200 rounded-lg shadow p-4 ",
+        "card_classes": "flex bg-white border border-gray-200 rounded-lg shadow p-4 ",
     }

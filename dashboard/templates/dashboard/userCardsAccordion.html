@@ -1,0 +1,21 @@
+<h2 id="accordion-collapse-heading-2">
+  <button type="button" class="!bg-white flex items-center justify-between w-full p-5 font-medium !text-gray-900 border border-b-0 border-gray-200 rounded-b-xl  hover:bg-gray-100 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="true" aria-controls="accordion-collapse-body-2">
+    <span>Your Cards</span>
+    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+    </svg>
+  </button>
+</h2>
+<div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2 ">
+  <div class="border border-b-0 border-gray-200 bg-color-5-100 py-4 rounded-b-xl space-y-4">
+    {% for card in cards %}
+      {%include './infoCardWithOperations.html' with entity=card%}
+    {% endfor %}
+    {% if accounts|length == 0 %}
+      <div class="{{card_classes}} flex-row justify-between items-center">
+        <p class="{{section_title}}"> You don't have an account yet! </p>
+        <a href="/accounts/create" class="{{primary_button}}"> Create one </a>
+      </div>
+    {% endif %}
+  </div>
+</div>

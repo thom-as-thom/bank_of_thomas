@@ -1,22 +1,14 @@
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm, ProfileForm, EmploymentForm, InvestmentForm
-from django.core.exceptions import ObjectDoesNotExist
-from django.contrib.auth import login, logout, authenticate
-from django.templatetags.static import static
-from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
 from .models import Profile
 from .models import OnboardingStep
+from bank_of_thomas.utils import checkAuth
+from accounts.utils import card_options, account_options
 
 
 # Create your views here.
 
-
-def checkAuth(request):
-    if not request.user.is_authenticated:
-        return redirect("login")
-    user = request.user
-    profile = user.profile if hasattr(user, "profile") else None
-    return [user, user.profile]
 
 def sign_up(request):
     if request.user.is_authenticated:
@@ -95,8 +87,39 @@ def onboarding(request):
 def dashboard(request):
     user, profile = checkAuth(request)
     accounts = user.accounts.all()
+    cards = user.cards.all()
+    accounts_info = []
+    for account in accounts:
+        accounts_info.append(
+            {
+                "name": account.account_type.capitalize() + " account ",
+                "subname": str(account.account_number)[-4:],
+                "amount": account.balance,
+                "main_options": account_options["main_options"],
+                "dropdown_options": account_options["dropdown_options"],
+            }
+        )
+    cards_info = []
+    for card in cards:
+        cards_info.append(
+            {
+                "subname": str(card.card_number)[-4:],
+                "type": card.card_type,
+                "name": card.card_provider,
+                "amount": card.amount_due if hasattr(card, "amount_due") else None,
+                "main_options": card_options[card.card_type.lower()]["main_options"],
+                "dropdown_options": card_options[card.card_type.lower()][
+                    "dropdown_options"
+                ],
+            }
+        )
     return render(
         request,
         "dashboard/dashboard.html",
-        {"user": user, "profile": profile, "accounts": accounts},
+        {
+            "user": user,
+            "profile": profile,
+            "accounts": accounts_info,
+            "cards": cards_info,
+        },
     )
